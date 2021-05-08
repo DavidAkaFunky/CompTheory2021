@@ -1,0 +1,76 @@
+q0 Q_ QQ *r add-0
+q0 A_ AA rr q0
+q0 Y_ YQ *r replace-Y0
+q0 N_ NN *r add-N0
+q0 S_ SS rr q0
+q0 L_ LL rr q0
+q0 R_ RR rr q0
+q0 0_ 00 rr q0
+q0 1_ 11 rr q0
+q0 2_ 22 rr q0
+q0 3_ 33 rr q0
+q0 4_ 44 rr q0
+q0 5_ 55 rr q0
+q0 6_ 66 rr q0
+q0 7_ 77 rr q0
+q0 8_ 88 rr q0
+q0 9_ 99 rr q0
+q0 ;_ ;; rr q0
+q0 $_ $; rr q1
+
+add-0 Q_ Q0 rr q0
+
+add-N0 N_ NN rr add-N0
+add-N0 A_ A_ ** q0
+
+replace-Y0 Y_ Y1 rr replace-Y1
+replace-Y1 Y_ Y0 rr replace-Y1
+replace-Y1 A_ A_ ** q0
+
+q1 Q_ QQ *r add-1
+q1 A_ AA rr q1
+q1 Y_ YY *r add-Y
+q1 N_ NN *r add-N1
+q1 S_ SS rr q1
+q1 L_ LL rr q1
+q1 R_ RR rr q1
+q1 0_ 00 rr q1
+q1 1_ 11 rr q1
+q1 2_ 22 rr q1
+q1 3_ 33 rr q1
+q1 4_ 44 rr q1
+q1 5_ 55 rr q1
+q1 6_ 66 rr q1
+q1 7_ 77 rr q1
+q1 8_ 88 rr q1
+q1 9_ 99 rr q1
+q1 ;_ ;; rr q1
+q1 __ __ *l rewind
+
+add-1 Q_ Q1 rr q1
+
+add-N1 N_ NN rr add-N1
+add-N1 A_ A_ ** q1
+
+add-Y Y_ YY rr add-Y
+add-Y A_ A_ ** q1
+
+rewind _Q _Q *l rewind
+rewind _A _A *l rewind
+rewind _Y _Y *l rewind
+rewind _N _N *l rewind
+rewind _S _S *l rewind
+rewind _L _L *l rewind
+rewind _R _R *l rewind
+rewind _0 _0 *l rewind
+rewind _1 _1 *l rewind
+rewind _2 _2 *l rewind
+rewind _3 _3 *l rewind
+rewind _4 _4 *l rewind
+rewind _5 _5 *l rewind
+rewind _6 _6 *l rewind
+rewind _7 _7 *l rewind
+rewind _8 _8 *l rewind
+rewind _9 _9 *l rewind
+rewind _; _; *l rewind
+rewind __ __ *r halt-accept
