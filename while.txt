@@ -1,76 +1,196 @@
-q0 Q_ QQ *r add-0
-q0 A_ AA rr q0
-q0 Y_ YQ *r replace-Y0
-q0 N_ NY *r add-Y0
-q0 S_ SS rr q0
-q0 L_ LL rr q0
-q0 R_ RR rr q0
-q0 0_ 00 rr q0
-q0 1_ 11 rr q0
-q0 2_ 22 rr q0
-q0 3_ 33 rr q0
-q0 4_ 44 rr q0
-q0 5_ 55 rr q0
-q0 6_ 66 rr q0
-q0 7_ 77 rr q0
-q0 8_ 88 rr q0
-q0 9_ 99 rr q0
-q0 ;_ ;; rr q0
-q0 $_ $; rr q1
+count0 Q___ Q1__ rr** count0
+count0 0___ 01__ rr** count0
+count0 1___ 11__ rr** count0
+count0 2___ 21__ rr** count0
+count0 3___ 31__ rr** count0
+count0 4___ 41__ rr** count0
+count0 5___ 51__ rr** count0
+count0 6___ 61__ rr** count0
+count0 7___ 71__ rr** count0
+count0 8___ 81__ rr** count0
+count0 9___ 91__ rr** count0
+count0 A___ A___ *l** rewind0
 
-add-0 Q_ Q0 rr q0
+rewind0 A1__ A1__ *l** rewind0
+rewind0 A___ A___ *r** size-checked0
 
-add-Y0 N_ NY rr add-Y0
-add-Y0 A_ A_ ** q0
+size-checked0 Q1__ Q1__ r*** size-checked0
+size-checked0 A1__ A1__ r*** size-checked0
+size-checked0 Y1__ Y1__ r*** size-checked0
+size-checked0 N1__ N1__ r*** size-checked0
+size-checked0 S1__ S1__ r*** size-checked0
+size-checked0 L1__ L1__ r*** size-checked0
+size-checked0 R1__ R1__ r*** size-checked0
+size-checked0 01__ 01__ r*** size-checked0
+size-checked0 11__ 11__ r*** size-checked0
+size-checked0 21__ 21__ r*** size-checked0
+size-checked0 31__ 31__ r*** size-checked0
+size-checked0 41__ 41__ r*** size-checked0
+size-checked0 51__ 51__ r*** size-checked0
+size-checked0 61__ 61__ r*** size-checked0
+size-checked0 71__ 71__ r*** size-checked0
+size-checked0 81__ 81__ r*** size-checked0
+size-checked0 91__ 91__ r*** size-checked0
+size-checked0 ;1__ ;1__ r*** size-checked0
+size-checked0 $1__ $1__ r*** count1
 
-replace-Y0 Y_ Y1 rr replace-Y1
-replace-Y1 Y_ Y0 rr replace-Y1
-replace-Y1 A_ A_ ** q0
+count1 Q1__ Q11_ r*r* count1
+count1 01__ 011_ r*r* count1
+count1 11__ 111_ r*r* count1
+count1 21__ 211_ r*r* count1
+count1 31__ 311_ r*r* count1
+count1 41__ 411_ r*r* count1
+count1 51__ 511_ r*r* count1
+count1 61__ 611_ r*r* count1
+count1 71__ 711_ r*r* count1
+count1 81__ 811_ r*r* count1
+count1 91__ 911_ r*r* count1
+count1 A1__ A1__ **l* rewind1
 
-q1 Q_ QQ *r add-1
-q1 A_ AA rr q1
-q1 Y_ YQ *r replace-Y2
-q1 N_ NN *r add-N1
-q1 S_ SS rr q1
-q1 L_ LL rr q1
-q1 R_ RR rr q1
-q1 0_ 00 rr q1
-q1 1_ 11 rr q1
-q1 2_ 22 rr q1
-q1 3_ 33 rr q1
-q1 4_ 44 rr q1
-q1 5_ 55 rr q1
-q1 6_ 66 rr q1
-q1 7_ 77 rr q1
-q1 8_ 88 rr q1
-q1 9_ 99 rr q1
-q1 ;_ ;; rr q1
-q1 __ __ *l rewind
+rewind1 A11_ A11_ **l* rewind1
+rewind1 A1__ A1__ **r* size-checked1
 
-add-1 Q_ Q1 rr q1
+size-checked1 _11_ ____ rrr* check-biggest
+size-checked1 *11_ *11_ l*** size-checked1
 
-add-N1 N_ NN rr add-N1
-add-N1 A_ A_ ** q1
+check-biggest Q11_ Q___ *rr* check-biggest
+check-biggest Q*__ Q*__ **** biggest0-part0
+check-biggest Q_1_ Q_1_ **** biggest1-part0
 
-replace-Y2 Y_ Y0 rr replace-Y2
-replace-Y2 A_ A_ ** q1
+biggest0-part0 Q*__ Q*_Q ***r add0-biggest0
+biggest0-part0 Y*__ Y*_Q ***r replaceY0-biggest0
+biggest0-part0 N*__ N*_Y ***r replaceN-biggest0-part0
+biggest0-part0 A*__ A*_A r**r biggest0-part0
+biggest0-part0 S*__ S*_S r**r biggest0-part0
+biggest0-part0 L*__ L*_L r**r biggest0-part0
+biggest0-part0 R*__ R*_R r**r biggest0-part0
+biggest0-part0 0*__ 0*_0 r**r biggest0-part0
+biggest0-part0 1*__ 1*_1 r**r biggest0-part0
+biggest0-part0 2*__ 2*_2 r**r biggest0-part0
+biggest0-part0 3*__ 3*_3 r**r biggest0-part0
+biggest0-part0 4*__ 4*_4 r**r biggest0-part0
+biggest0-part0 5*__ 5*_5 r**r biggest0-part0
+biggest0-part0 6*__ 6*_6 r**r biggest0-part0
+biggest0-part0 7*__ 7*_7 r**r biggest0-part0
+biggest0-part0 8*__ 8*_8 r**r biggest0-part0
+biggest0-part0 9*__ 9*_9 r**r biggest0-part0
+biggest0-part0 ;*__ ;*_; r**r biggest0-part0
+biggest0-part0 $*__ $*_; r**r biggest0-part1
 
-rewind _Q _Q *l rewind
-rewind _A _A *l rewind
-rewind _Y _Y *l rewind
-rewind _N _N *l rewind
-rewind _S _S *l rewind
-rewind _L _L *l rewind
-rewind _R _R *l rewind
-rewind _0 _0 *l rewind
-rewind _1 _1 *l rewind
-rewind _2 _2 *l rewind
-rewind _3 _3 *l rewind
-rewind _4 _4 *l rewind
-rewind _5 _5 *l rewind
-rewind _6 _6 *l rewind
-rewind _7 _7 *l rewind
-rewind _8 _8 *l rewind
-rewind _9 _9 *l rewind
-rewind _; _; *l rewind
-rewind __ __ *r halt-accept
+add0-biggest0 Q*__ Q*_0 r**r biggest0-part0
+
+replaceN-biggest0-part0 N*__ N*_Y r**r replaceN-biggest0-part0
+replaceN-biggest0-part0 A*__ A*_A r**r biggest0-part0
+
+replaceY0-biggest0 Y1__ Y1_1 rr*r replaceY0-biggest0
+replaceY0-biggest0 Y___ Y__1 rl*r replaceY1-biggest0
+replaceY1-biggest0 Y*__ Y*_0 r**r replaceY1-biggest0
+replaceY1-biggest0 A*__ A*__ *l** rewind-biggest0-part0
+
+rewind-biggest0-part0 *1_* *1_* *l** rewind-biggest0-part0
+rewind-biggest0-part0 *__* *__* *r** biggest0-part0
+
+biggest0-part1 Q*__ Q*_Q ***r add1-biggest0
+biggest0-part1 Y*__ Y*_Q ***r replaceY-biggest0
+biggest0-part1 N*__ N*_N ***r replaceN-biggest0-part1
+biggest0-part1 A*__ A*_A r**r biggest0-part1
+biggest0-part1 S*__ S*_S r**r biggest0-part1
+biggest0-part1 L*__ L*_L r**r biggest0-part1
+biggest0-part1 R*__ R*_R r**r biggest0-part1
+biggest0-part1 0*__ 0*_0 r**r biggest0-part1
+biggest0-part1 1*__ 1*_1 r**r biggest0-part1
+biggest0-part1 2*__ 2*_2 r**r biggest0-part1
+biggest0-part1 3*__ 3*_3 r**r biggest0-part1
+biggest0-part1 4*__ 4*_4 r**r biggest0-part1
+biggest0-part1 5*__ 5*_5 r**r biggest0-part1
+biggest0-part1 6*__ 6*_6 r**r biggest0-part1
+biggest0-part1 7*__ 7*_7 r**r biggest0-part1
+biggest0-part1 8*__ 8*_8 r**r biggest0-part1
+biggest0-part1 9*__ 9*_9 r**r biggest0-part1
+biggest0-part1 ;*__ ;*_; r**r biggest0-part1
+biggest0-part1 _*__ _*__ ***l rewind-output 
+
+add1-biggest0 Q1__ Q1_1 *r*r add1-biggest0
+add1-biggest0 Q___ Q__1 *l*r rewind-biggest0-part1
+
+replaceY-biggest0 Y1__ Y1_0 *r*r replaceY-biggest0
+replaceY-biggest0 Y___ Y__0 r**r replaceY-biggest0
+replaceY-biggest0 A___ A__A *l*r rewind-biggest0-part1
+
+replaceN-biggest0-part1 N1__ N1_N *r*r replaceN-biggest0-part1
+replaceN-biggest0-part1 N___ N__N r**r replaceN-biggest0-part1
+replaceN-biggest0-part1 A___ A__A *l*r rewind-biggest0-part1
+
+rewind-biggest0-part1 *1__ *1__ *l** rewind-biggest0-part1
+rewind-biggest0-part1 *___ *___ rr** biggest0-part1
+
+biggest1-part0 Q_*_ Q_*Q ***r add0-biggest1
+biggest1-part0 Y_*_ Y_*Q r**r replaceY0-biggest1
+biggest1-part0 N_*_ N_*Y ***r replaceN-biggest1-part0
+biggest1-part0 A_*_ A_*A r**r biggest1-part0
+biggest1-part0 S_*_ S_*S r**r biggest1-part0
+biggest1-part0 L_*_ L_*L r**r biggest1-part0
+biggest1-part0 R_*_ R_*R r**r biggest1-part0
+biggest1-part0 0_*_ 0_*0 r**r biggest1-part0
+biggest1-part0 1_*_ 1_*1 r**r biggest1-part0
+biggest1-part0 2_*_ 2_*2 r**r biggest1-part0
+biggest1-part0 3_*_ 3_*3 r**r biggest1-part0
+biggest1-part0 4_*_ 4_*4 r**r biggest1-part0
+biggest1-part0 5_*_ 5_*5 r**r biggest1-part0
+biggest1-part0 6_*_ 6_*6 r**r biggest1-part0
+biggest1-part0 7_*_ 7_*7 r**r biggest1-part0
+biggest1-part0 8_*_ 8_*8 r**r biggest1-part0
+biggest1-part0 9_*_ 9_*9 r**r biggest1-part0
+biggest1-part0 ;_*_ ;_*; r**r biggest1-part0
+biggest1-part0 $_*_ $_*; r**r biggest1-part1
+
+add0-biggest1 Q_1_ Q_10 **rr add0-biggest1
+add0-biggest1 Q___ Q__0 r*lr rewind-biggest1-part0
+
+replaceY0-biggest1 Y_*_ Y_*1 ***r replaceY1-biggest1
+replaceY1-biggest1 Y_1_ Y_10 **rr replaceY1-biggest1
+replaceY1-biggest1 Y___ Y__0 r*lr replaceY2-biggest1
+replaceY2-biggest1 Y_*_ Y_*0 r**r replaceY2-biggest1
+replaceY2-biggest1 A_*_ A_*_ **l* rewind-biggest1-part0
+
+replaceN-biggest1-part0 N_1_ N_1Y **rr replaceN-biggest1-part0
+replaceN-biggest1-part0 N___ N__Y r**r replaceN-biggest1-part0
+replaceN-biggest1-part0 A___ A__A **lr rewind-biggest1-part0
+
+rewind-biggest1-part0 *_1* *_1* **l* rewind-biggest1-part0
+rewind-biggest1-part0 *__* *__* **r* biggest1-part0
+
+biggest1-part1 Q_*_ Q_*Q ***r add1-biggest1
+biggest1-part1 Y_*_ Y_*Q r**r replaceY-biggest1
+biggest1-part1 N_*_ N_*N ***r replaceN-biggest1
+biggest1-part1 A_*_ A_*A r**r biggest1-part1
+biggest1-part1 S_*_ S_*S r**r biggest1-part1
+biggest1-part1 L_*_ L_*L r**r biggest1-part1
+biggest1-part1 R_*_ R_*R r**r biggest1-part1
+biggest1-part1 0_*_ 0_*0 r**r biggest1-part1
+biggest1-part1 1_*_ 1_*1 r**r biggest1-part1
+biggest1-part1 2_*_ 2_*2 r**r biggest1-part1
+biggest1-part1 3_*_ 3_*3 r**r biggest1-part1
+biggest1-part1 4_*_ 4_*4 r**r biggest1-part1
+biggest1-part1 5_*_ 5_*5 r**r biggest1-part1
+biggest1-part1 6_*_ 6_*6 r**r biggest1-part1
+biggest1-part1 7_*_ 7_*7 r**r biggest1-part1
+biggest1-part1 8_*_ 8_*8 r**r biggest1-part1
+biggest1-part1 9_*_ 9_*9 r**r biggest1-part1
+biggest1-part1 ;_*_ ;_*; r**r biggest1-part1
+biggest1-part1 __*_ __*_ ***l rewind-output 
+
+add1-biggest1 Q_*_ Q_*1 r**r biggest1-part1
+
+replaceY-biggest1 Y_1_ Y_10 **rr replaceY-biggest1
+replaceY-biggest1 Y___ Y__0 r**r replaceY-biggest1
+replaceY-biggest1 A___ A__A **lr rewind-biggest1-part1
+
+rewind-biggest1-part1 *_1* *_1* **l* rewind-biggest1-part1
+rewind-biggest1-part1 *__* *__* **r* biggest1-part1
+
+replaceN-biggest1 N_*_ N_*N r**r replaceN-biggest1
+replaceN-biggest1 A_*_ A_*A r**r biggest1-part1
+
+rewind-output ***_ ***_ ***r halt-accept
+rewind-output **** **** ***l rewind-output
