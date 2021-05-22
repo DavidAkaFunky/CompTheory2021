@@ -162,7 +162,7 @@ rewind-biggest1-part0 *__* *__* **r* biggest1-part0
 
 biggest1-part1 Q_*_ Q_*Q ***r add1-biggest1
 biggest1-part1 Y_*_ Y_*Q r**r replaceY-biggest1
-biggest1-part1 N_*_ N_*N ***r replaceN-biggest1
+biggest1-part1 N_*_ N_*N ***r addN-biggest1
 biggest1-part1 A_*_ A_*A r**r biggest1-part1
 biggest1-part1 S_*_ S_*S r**r biggest1-part1
 biggest1-part1 L_*_ L_*L r**r biggest1-part1
@@ -189,8 +189,8 @@ replaceY-biggest1 A___ A__A **lr rewind-biggest1-part1
 rewind-biggest1-part1 *_1* *_1* **l* rewind-biggest1-part1
 rewind-biggest1-part1 *__* *__* **r* biggest1-part1
 
-replaceN-biggest1 N_*_ N_*N r**r replaceN-biggest1
-replaceN-biggest1 A_*_ A_*A r**r biggest1-part1
+addN-biggest1 N_*_ N_*N r**r addN-biggest1
+addN-biggest1 A_*_ A_*A r**r biggest1-part1
 
 rewind-output ***_ ***_ ***r halt-accept
 rewind-output **** **** ***l rewind-output
