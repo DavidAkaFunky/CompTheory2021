@@ -1,108 +1,278 @@
-q0 Q_ QQ *r add-0
-q0 A_ AA rr q0
-q0 Y_ YQ *r replace-Y0
-q0 N_ NQ *r replace-N0
-q0 S_ SS rr q0
-q0 L_ LL rr q0
-q0 R_ RR rr q0
-q0 0_ 00 rr q0
-q0 1_ 11 rr q0
-q0 2_ 22 rr q0
-q0 3_ 33 rr q0
-q0 4_ 44 rr q0
-q0 5_ 55 rr q0
-q0 6_ 66 rr q0
-q0 7_ 77 rr q0
-q0 8_ 88 rr q0
-q0 9_ 99 rr q0
-q0 ;_ ;; rr q0
-q0 $_ $; rr q1
+;Conta tamanho dos estados da primeira maquina
+count0 Q__ Q1_ rr* count0
+count0 0__ 01_ rr* count0
+count0 1__ 11_ rr* count0
+count0 2__ 21_ rr* count0
+count0 3__ 31_ rr* count0
+count0 4__ 41_ rr* count0
+count0 5__ 51_ rr* count0
+count0 6__ 61_ rr* count0
+count0 7__ 71_ rr* count0
+count0 8__ 81_ rr* count0
+count0 9__ 91_ rr* count0
+count0 A__ A__ *l* rewind0
 
-add-0 Q_ Q0 rr q0
+;Rewind do contador para o inicio
+rewind0 A1_ A1_ *l* rewind0
+rewind0 A__ A__ *r* size-checked0
 
-add-N0 N_ NN rr add-N0
-add-N0 A_ A_ ** q0
+;Avança até encontrar a segunda maquina
+size-checked0 $1_ $1_ r** count1
+size-checked0 *1_ *1_ r** size-checked0
 
-replace-Y0 Y_ Y1 rr replace-Y0a
-replace-Y0a Y_ Y0 rr replace-Y0a
-replace-Y0a A_ A_ ** q0
+;Conta tamanho dos estados da segunda maquina(por cima)
+count1 Q*_ Q1_ rr* count1
+count1 0*_ 01_ rr* count1
+count1 1*_ 11_ rr* count1
+count1 2*_ 21_ rr* count1
+count1 3*_ 31_ rr* count1
+count1 4*_ 41_ rr* count1
+count1 5*_ 51_ rr* count1
+count1 6*_ 61_ rr* count1
+count1 7*_ 71_ rr* count1
+count1 8*_ 81_ rr* count1
+count1 9*_ 91_ rr* count1
+count1 A*_ A*_ *l* rewind1
 
-replace-N0 N_ N2 rr replace-N0a
-replace-N0a N_ N0 rr replace-N0a
-replace-N0a A_ A_ ** q0
+;Rewind do contador para o inicio
+rewind1 A1_ A1_ *l* rewind1
+rewind1 A__ A__ *r* size-checked1
 
-q1 Q_ QQ *r add-1
-q1 A_ AA rr q1
-q1 Y_ YY *r add-Y1
-q1 N_ NN *r add-N1
-q1 S_ SS rr q1
-q1 L_ LL rr q1
-q1 R_ RR rr q1
-q1 0_ 00 rr q1
-q1 1_ 11 rr q1
-q1 2_ 22 rr q1
-q1 3_ 33 rr q1
-q1 4_ 44 rr q1
-q1 5_ 55 rr q1
-q1 6_ 66 rr q1
-q1 7_ 77 rr q1
-q1 8_ 88 rr q1
-q1 9_ 99 rr q1
-q1 ;_ ;; rr q1
-q1 $_ $; rr q2
+;Avança até encontrar a terceira maquina
+size-checked1 $1_ $1_ r** count2
+size-checked1 *1_ *1_ r** size-checked1
 
-add-1 Q_ Q1 rr q1
+;Conta tamanho dos estados da terceira maquina(por cima)
+count2 Q*_ Q1_ rr* count2
+count2 0*_ 01_ rr* count2
+count2 1*_ 11_ rr* count2
+count2 2*_ 21_ rr* count2
+count2 3*_ 31_ rr* count2
+count2 4*_ 41_ rr* count2
+count2 5*_ 51_ rr* count2
+count2 6*_ 61_ rr* count2
+count2 7*_ 71_ rr* count2
+count2 8*_ 81_ rr* count2
+count2 9*_ 91_ rr* count2
+count2 A*_ A*_ *l* rewind2
 
-add-N1 N_ NN rr add-N1
-add-N1 A_ A_ ** q1
+;Rewind do contador para o inicio
+rewind2 A1_ A1_ *l* rewind2
+rewind2 A__ A__ *r* size-checked2
 
-add-Y1 Y_ YY rr add-Y1
-add-Y1 A_ A_ ** q1
+;Rewind das maquinas até ao inicio
+size-checked2 _1_ _1_ r** transform0
+size-checked2 *1_ *1_ l** size-checked2
 
-q2 Q_ QQ *r add-2
-q2 A_ AA rr q2
-q2 Y_ YY *r add-Y2
-q2 N_ NN *r add-N2
-q2 S_ SS rr q2
-q2 L_ LL rr q2
-q2 R_ RR rr q2
-q2 0_ 00 rr q2
-q2 1_ 11 rr q2
-q2 2_ 22 rr q2
-q2 3_ 33 rr q2
-q2 4_ 44 rr q2
-q2 5_ 55 rr q2
-q2 6_ 66 rr q2
-q2 7_ 77 rr q2
-q2 8_ 88 rr q2
-q2 9_ 99 rr q2
-q2 ;_ ;; rr q2
-q2 __ __ *l rewind
+;Percorrer 1ª máquina
+transform0 Q1_ Q1Q rrr add0
+transform0 01_ 010 r*r transform0
+transform0 11_ 111 r*r transform0
+transform0 21_ 212 r*r transform0
+transform0 31_ 313 r*r transform0
+transform0 41_ 414 r*r transform0
+transform0 51_ 515 r*r transform0
+transform0 61_ 616 r*r transform0
+transform0 71_ 717 r*r transform0
+transform0 81_ 818 r*r transform0
+transform0 91_ 919 r*r transform0
+transform0 A1_ A1A r*r transform0
+transform0 L1_ L1L r*r transform0
+transform0 R1_ R1R r*r transform0
+transform0 S1_ S1S r*r transform0
+transform0 ;1_ ;1; r*r transform0
+transform0 Y1_ X1_ r** find-q0-part1
+transform0 N1_ X1_ r** find-q0-part2
+transform0 $1_ $1; r*r transform1 
 
-add-2 Q_ Q2 rr q2
+add0 A1_ A10 *rr add0-finish
+add0 A__ A_0 *lr rewind3
+add0 01_ 010 rrr add0
+add0 11_ 111 rrr add0
+add0 21_ 212 rrr add0
+add0 31_ 313 rrr add0
+add0 41_ 414 rrr add0
+add0 51_ 515 rrr add0
+add0 61_ 616 rrr add0
+add0 71_ 717 rrr add0
+add0 81_ 818 rrr add0
+add0 91_ 919 rrr add0
 
-add-N2 N_ NN rr add-N2
-add-N2 A_ A_ ** q2
+add0-finish A1_ A10 *rr add0-finish
+add0-finish A__ A_0 *lr rewind3
 
-add-Y2 Y_ YY rr add-Y2
-add-Y2 A_ A_ ** q2
+rewind3 *1* *1* *l* rewind3
+rewind3 *_* *_* *r* transform0
 
-rewind _Q _Q *l rewind
-rewind _A _A *l rewind
-rewind _Y _Y *l rewind
-rewind _N _N *l rewind
-rewind _S _S *l rewind
-rewind _L _L *l rewind
-rewind _R _R *l rewind
-rewind _0 _0 *l rewind
-rewind _1 _1 *l rewind
-rewind _2 _2 *l rewind
-rewind _3 _3 *l rewind
-rewind _4 _4 *l rewind
-rewind _5 _5 *l rewind
-rewind _6 _6 *l rewind
-rewind _7 _7 *l rewind
-rewind _8 _8 *l rewind
-rewind _9 _9 *l rewind
-rewind _; _; *l rewind
-rewind __ __ *r halt-accept
+find-q0-part1 $1_ $1_ r** copy-q0-part1
+find-q0-part1 *1_ *1_ r** find-q0-part1
+
+find-q0-part2 $1_ $1_ r** find-second 
+find-q0-part2 *1_ *1_ r** find-q0-part2
+
+find-second $1_ $1_ r** copy-q0-part2
+find-second *1_ *1_ r** find-second
+
+copy-q0-part1 Q1_ Q1Q rrr copy-q0-part1
+copy-q0-part1 01_ 010 rrr copy-q0-part1
+copy-q0-part1 11_ 111 rrr copy-q0-part1
+copy-q0-part1 21_ 212 rrr copy-q0-part1
+copy-q0-part1 31_ 313 rrr copy-q0-part1
+copy-q0-part1 41_ 414 rrr copy-q0-part1
+copy-q0-part1 51_ 515 rrr copy-q0-part1
+copy-q0-part1 61_ 616 rrr copy-q0-part1
+copy-q0-part1 71_ 717 rrr copy-q0-part1
+copy-q0-part1 81_ 818 rrr copy-q0-part1
+copy-q0-part1 91_ 919 rrr copy-q0-part1
+copy-q0-part1 A1_ A11 *rr copy-q0-part1-finish
+copy-q0-part1 A__ A_1 *lr rewind4
+
+rewind4 *1* *1* *l* rewind4
+rewind4 *_* *_* lr* rewind5
+
+rewind5 X1_ Y1_ r** rewind5-finish
+rewind5 *1_ *1_ l** rewind5
+
+rewind5-finish A1_ A1A r*r transform0
+rewind5-finish *1_ *1_ r** rewind5-finish
+
+copy-q0-part1-finish A1_ A11 *rr copy-q0-part1-finish
+copy-q0-part1-finish A__ A_1 *lr rewind4
+
+copy-q0-part2 Q1_ Q1Q rrr copy-q0-part2
+copy-q0-part2 01_ 010 rrr copy-q0-part2
+copy-q0-part2 11_ 111 rrr copy-q0-part2
+copy-q0-part2 21_ 212 rrr copy-q0-part2
+copy-q0-part2 31_ 313 rrr copy-q0-part2
+copy-q0-part2 41_ 414 rrr copy-q0-part2
+copy-q0-part2 51_ 515 rrr copy-q0-part2
+copy-q0-part2 61_ 616 rrr copy-q0-part2
+copy-q0-part2 71_ 717 rrr copy-q0-part2
+copy-q0-part2 81_ 818 rrr copy-q0-part2
+copy-q0-part2 91_ 919 rrr copy-q0-part2
+copy-q0-part2 A1_ A12 *rr copy-q0-part2-finish
+copy-q0-part2 A__ A_2 *lr rewind4
+
+copy-q0-part2-finish A1_ A12 *rr copy-q0-part2-finish
+copy-q0-part2-finish A__ A_2 *lr rewind6
+
+rewind6 *1* *1* *l* rewind6
+rewind6 *_* *_* lr* rewind7
+
+rewind7 X1_ N1_ r** rewind5-finish
+rewind7 *1_ *1_ l** rewind7
+
+transform1 Q1_ Q1Q rrr add1
+transform1 01_ 010 r*r transform1
+transform1 11_ 111 r*r transform1
+transform1 21_ 212 r*r transform1
+transform1 31_ 313 r*r transform1
+transform1 41_ 414 r*r transform1
+transform1 51_ 515 r*r transform1
+transform1 61_ 616 r*r transform1
+transform1 71_ 717 r*r transform1
+transform1 81_ 818 r*r transform1
+transform1 91_ 919 r*r transform1
+transform1 A1_ A1A r*r transform1
+transform1 L1_ L1L r*r transform1
+transform1 R1_ R1R r*r transform1
+transform1 S1_ S1S r*r transform1
+transform1 ;1_ ;1; r*r transform1
+transform1 Y1_ Y1Y rrr addY-part1
+transform1 N1_ N1N rrr addN-part1
+transform1 $1_ $1; r*r transform2
+
+;Adicionar tamanho correto do estado na segunda maquina
+add1 A1_ A11 *rr add1-finish
+add1 A__ A_1 *lr rewind8
+add1 01_ 010 rrr add1
+add1 11_ 111 rrr add1
+add1 21_ 212 rrr add1
+add1 31_ 313 rrr add1
+add1 41_ 414 rrr add1
+add1 51_ 515 rrr add1
+add1 61_ 616 rrr add1
+add1 71_ 717 rrr add1
+add1 81_ 818 rrr add1
+add1 91_ 919 rrr add1
+
+add1-finish A1_ A11 *rr add1-finish
+add1-finish A__ A_1 *lr rewind8
+
+;Adicionar tamanho correto de Y na segunda máquina
+addY-part1 A1_ A1Y *rr addY-part1-finish
+addY-part1 A__ A_Y *lr rewind8
+addY-part1 Y1_ Y1Y rrr addY-part1
+
+addY-part1-finish A1_ A1Y *rr addY-part1-finish
+addY-part1-finish A__ A_Y *lr rewind8
+
+;Adicionar tamanho correto de N na segunda máquina
+addN-part1 A1_ A1N *rr addN-part1-finish
+addN-part1 A__ A_N *lr rewind8
+addN-part1 N1_ N1N rrr addN-part1
+
+addN-part1-finish A1_ A1N *rr addN-part1-finish
+addN-part1-finish A__ A_N *lr rewind8
+
+rewind8 *1* *1* *l* rewind8
+rewind8 *_* *_* *r* transform1
+
+transform2 Q1_ Q1Q rrr add2
+transform2 01_ 010 r*r transform2
+transform2 11_ 111 r*r transform2
+transform2 21_ 212 r*r transform2
+transform2 31_ 313 r*r transform2
+transform2 41_ 414 r*r transform2
+transform2 51_ 515 r*r transform2
+transform2 61_ 616 r*r transform2
+transform2 71_ 717 r*r transform2
+transform2 81_ 818 r*r transform2
+transform2 91_ 919 r*r transform2
+transform2 A1_ A1A r*r transform2
+transform2 L1_ L1L r*r transform2
+transform2 R1_ R1R r*r transform2
+transform2 S1_ S1S r*r transform2
+transform2 ;1_ ;1; r*r transform2
+transform2 Y1_ Y1Y rrr addY-part2
+transform2 N1_ N1N rrr addN-part2
+transform2 _1_ _1_ **l rewind10
+
+;Adicionar tamanho correto do estado na teceira máquina
+add2 A1_ A12 *rr add2-finish
+add2 A__ A_2 *lr rewind9
+add2 01_ 010 rrr add2
+add2 11_ 111 rrr add2
+add2 21_ 212 rrr add2
+add2 31_ 313 rrr add2
+add2 41_ 414 rrr add2
+add2 51_ 515 rrr add2
+add2 61_ 616 rrr add2
+add2 71_ 717 rrr add2
+add2 81_ 818 rrr add2
+add2 91_ 919 rrr add2
+
+add2-finish A1_ A12 *rr add2-finish
+add2-finish A__ A_2 *lr rewind9
+
+;Adicionar tamanho correto de Y na teceira máquina
+addY-part2 A1_ A1Y *rr addY-part2-finish
+addY-part2 A__ A_Y *lr rewind9
+addY-part2 Y1_ Y1Y rrr addY-part2
+
+addY-part2-finish A1_ A1Y *rr addY-part2-finish
+addY-part2-finish A__ A_Y *lr rewind9
+
+;Adicionar tamanho correto de N na teceira máquina
+addN-part2 A1_ A1N *rr addN-part2-finish
+addN-part2 A__ A_N *lr rewind9
+addN-part2 N1_ N1N rrr addN-part2
+
+addN-part2-finish A1_ A1N *rr addN-part2-finish
+addN-part2-finish A__ A_N *lr rewind9
+
+rewind9 *1* *1* *l* rewind9
+rewind9 *_* *_* *r* transform2
+
+rewind10 *1_ *1_ **r halt-accept
+rewind10 *1* *1* **l rewind10 
